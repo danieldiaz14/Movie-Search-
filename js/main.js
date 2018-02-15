@@ -73,7 +73,7 @@ function checkImage(input) {
 
 function check(input) {
     if (input.length <= 0) {
-        return 'No idea';
+        return 'Information was not provided';
     }
     return input[0].name;
 }
