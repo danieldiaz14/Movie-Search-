@@ -39,7 +39,7 @@ function getShows(searchText) {
             let output = '';
             for(let i = 0; i < shows.length; i++) {
                 console.log(shows[i].poster_path);
-                let imageAddress = check(shows[i].poster_path);
+                let imageAddress = checkImage(shows[i].poster_path);
                 output += `
                     <div class="col-md-3">
                         <div class="well text-center">
@@ -63,7 +63,7 @@ function showSelected(id) {
     return false;
 }
 
-function check(input) {
+function checkImage(input) {
     if(input === null) {
         return './placholder1.jpg';
     } else {
@@ -71,6 +71,12 @@ function check(input) {
     }
 }
 
+function check(input) {
+    if (input.length <= 0) {
+        return 'No idea';
+    }
+    return input[0].name;
+}
 
 function getShow() {
     let showId = sessionStorage.getItem('showId');
