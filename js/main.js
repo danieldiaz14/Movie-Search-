@@ -11,7 +11,6 @@ function getPopular() {
     axios.get('https://api.themoviedb.org/3/discover/tv?api_key=fb6a1d3f38c3d97f67df6d141f936f29&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false')
         .then((response) => {
             let shows = response.data.results;
-            console.log(shows);
             let output = '';
             for(let i = 0; i < shows.length; i++) {
                 output += `
@@ -36,12 +35,15 @@ function getShows(searchText) {
         .then((response) => {
             //console.log(response);
             let shows = response.data.results;
+            console.log(shows);
             let output = '';
             for(let i = 0; i < shows.length; i++) {
+                console.log(shows[i].poster_path);
+                let imageAddress = check(shows[i].poster_path);
                 output += `
                     <div class="col-md-3">
                         <div class="well text-center">
-                            <img src="${"https://image.tmdb.org/t/p/w500" + shows[i].poster_path}">
+                            <img src="${imageAddress}">
                             <h5>${shows[i].name}</h5>
                             <a onclick="showSelected('${shows[i].id}')" class="btn btn-primary" href="#">Show Details</a>
                         </div>
@@ -62,11 +64,13 @@ function showSelected(id) {
 }
 
 function check(input) {
-    if (input.length <= 0) {
-        return 'No idea';
+    if(input === null) {
+        return './placholder1.jpg';
+    } else {
+        return "https://image.tmdb.org/t/p/w500" + input;
     }
-    return input[0].name;
 }
+
 
 function getShow() {
     let showId = sessionStorage.getItem('showId');
