@@ -17,8 +17,8 @@ function getShows(searchText) {
                     <div class="col-md-3">
                         <div class="well text-center">
                             <img src="${show.Poster}">
-                            <h5>${show.Title}</h5>
-                            <a onclick="showSelected('${show.imdbID}')" class="btn btn-primary" href="#">Show Details</a>
+                            <h5>${show.name}</h5>
+                            <a onclick="showSelected('${show.id}')" class="btn btn-primary" href="#">Show Details</a>
                         </div>
                     </div>
                 `;
