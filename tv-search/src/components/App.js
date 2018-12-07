@@ -1,6 +1,7 @@
 import './main.css';
 import React from 'react';
 import Home from './Home';
+import SearchBar from './SearchBar';
 
 class App extends React.Component {
 
@@ -8,6 +9,7 @@ class App extends React.Component {
         return (
             <div>
                 <Home/>
+                <SearchBar/>
             </div>
         )
     }
