@@ -28,7 +28,7 @@ class App extends React.Component {
     };
 
     onHome = () => {
-        this.setState({shows: this.state.home});
+        this.setState({shows: this.state.home, selectedShow: null });
     };
 
     onShowSelect = (show) => {
@@ -40,7 +40,7 @@ class App extends React.Component {
             <div>
                 <Home onReturn={this.onHome}/>
                 <SearchBar onSubmit={this.onSubmit}/>
-                <ShowList onShowSelect={this.onShowSelect} shows={this.state.shows}/>
+                <ShowList onShowSelect={this.onShowSelect} shows={this.state.shows} selected={this.state.selectedShow}/>
             </div>
         )
     }
