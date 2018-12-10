@@ -1,11 +1,12 @@
 import React from 'react';
 
 const Home = () => {
+
     return (
             <nav className="navbar navbar-default">
                 <div className="container">
                     <div className="navbar-header">
-                        <a className="navbar-brand" href="#">Home</a>
+                        <a className="navbar-brand" >Home</a>
                     </div>
                 </div>
             </nav>
