@@ -1,13 +1,21 @@
 .shows img, .show img{
     width:100%;
 }
+.col-md-3 {
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+.col-md-3:hover{
+    transform: scale(1.05);
+}
 
-@media(min-width:960px) {
-    .movies .col-md-3 .well{
-        height: 390px;
-    }
-
-    .movies .col-md-3 img{
-        height:240px;
-    }
+.navbar-brand {
+    color: black;
+    transition-duration: 0.5s;
+}
+.navbar-brand:hover {
+    transform: scale(1.2);
+    background-color: aliceblue;
+    border: 2px solid black;
+    border-radius: 20%; 
 }

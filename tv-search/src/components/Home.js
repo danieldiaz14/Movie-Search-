@@ -10,9 +10,7 @@ class Home extends React.Component {
         return (
             <nav onClick={this.goHome} className="navbar navbar-default" style={{cursor: 'pointer'}}>
                 <div className="container">
-                    <div className="navbar-header">
-                        <p className="navbar-brand">Home</p>
-                    </div>
+                    <p className="navbar-brand">Home</p>
                 </div>
             </nav>
         )
