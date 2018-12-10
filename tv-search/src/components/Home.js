@@ -1,16 +1,22 @@
 import React from 'react';
 
-const Home = () => {
 
-    return (
-            <nav className="navbar navbar-default">
+class Home extends React.Component {
+    goHome = (e) => {
+        e.preventDefault();
+        this.props.onReturn();
+    }
+    render() {
+        return (
+            <nav onClick={this.goHome} className="navbar navbar-default" style={{cursor: 'pointer'}}>
                 <div className="container">
                     <div className="navbar-header">
-                        <a className="navbar-brand" >Home</a>
+                        <p className="navbar-brand">Home</p>
                     </div>
                 </div>
             </nav>
-    )
+        )
+    }
 }
 
 export default Home;

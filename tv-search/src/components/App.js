@@ -15,7 +15,6 @@ class App extends React.Component {
         const response = await MovieDB.get('/search/tv',{
             params: {api_key:'b8ef17bd40019759c9b93654e682a1a0', language:'en-US', query: term, page:1}
         });
-        console.log(response.data.results);
         this.setState({shows: response.data.results});
     };
 
@@ -23,13 +22,20 @@ class App extends React.Component {
         const response = await MovieDB.get('/discover/tv', {
             params: {api_key:'b8ef17bd40019759c9b93654e682a1a0'}
         });
-        console.log(response.data.results);
         this.setState({shows: response.data.results});
     }
+
+    onHome = async () => {
+        const response = await MovieDB.get('/discover/tv', {
+            params: {api_key :'b8ef17bd40019759c9b93654e682a1a0'}
+        });
+        this.setState({shows: response.data.results});
+    }
+
     render() {
         return (
             <div>
-                <Home/>
+                <Home onReturn={this.onHome}/>
                 <SearchBar onSubmit={this.onSubmit}/>
                 <ShowList shows={this.state.shows}/>
             </div>
