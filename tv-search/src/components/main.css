@@ -11,7 +11,7 @@
 
 .navbar-brand {
     color: black;
-    transition-duration: 0.s;
+    transition-duration: 0.5s;
 }
 .navbar-brand:hover {
     transform: scale(1.2);
@@ -22,4 +22,5 @@
 
 .navbar-brand:active {
     background-color: lightgreen;
+    border: 2px solid red;
 }
