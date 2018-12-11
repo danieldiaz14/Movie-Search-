@@ -1,6 +1,6 @@
 import './main.css';
 import React from 'react';
-import Home from './Home';
+import Button from './Button';
 import SearchBar from './SearchBar';
 import ShowList from './ShowList';
 import MovieDB from '../api/MovieDB';
@@ -24,7 +24,7 @@ class App extends React.Component {
         const response = await MovieDB.get('/discover/tv', {
             params: {api_key:'b8ef17bd40019759c9b93654e682a1a0'}
         });
-        this.setState({shows: response.data.results, home: response.data.results});
+        this.setState({shows: response.data.results, home:response.data.results});
     };
 
     onHome = () => {
@@ -35,13 +35,12 @@ class App extends React.Component {
         const response = await MovieDB.get(`/tv/${show.id}`, {
             params: {api_key: 'b8ef17bd40019759c9b93654e682a1a0'}
         });
-        console.log(response.data);
         this.setState({selectedShow: response.data});
     };
     render() {
         return (
             <div>
-                <Home onReturn={this.onHome}/>
+                <Button onLink={this.onHome} text="Home"/>
                 <SearchBar onSubmit={this.onSubmit}/>
                 <ShowList onShowSelect={this.onShowSelect} shows={this.state.shows} selected={this.state.selectedShow}/>
             </div>
