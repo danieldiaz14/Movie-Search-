@@ -2,6 +2,7 @@ import Img from './placeholder1.jpg';
 import React from 'react';
 import SingleShow from './SingleShow';
 import ShowDetail from './ShowDetail';
+
 const ShowList = ({shows, onShowSelect, selected}) => {
     const baseImg = 'https://image.tmdb.org/t/p/w500';
     const renderedShow = shows.map((show) => {
@@ -20,7 +21,11 @@ const ShowList = ({shows, onShowSelect, selected}) => {
         )
     } else {
         return (
-            <ShowDetail/>
+            <div className="container">
+                <div className="show well">
+                <ShowDetail info={selected}/>
+                </div>
+            </div>
         )
     }
 }

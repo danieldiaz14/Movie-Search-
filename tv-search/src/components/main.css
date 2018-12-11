@@ -11,11 +11,15 @@
 
 .navbar-brand {
     color: black;
-    transition-duration: 0.5s;
+    transition-duration: 0.s;
 }
 .navbar-brand:hover {
     transform: scale(1.2);
     background-color: aliceblue;
     border: 2px solid black;
     border-radius: 20%; 
+}
+
+.navbar-brand:active {
+    background-color: lightgreen;
 }

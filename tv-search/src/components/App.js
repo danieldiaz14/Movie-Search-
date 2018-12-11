@@ -17,7 +17,7 @@ class App extends React.Component {
         const response = await MovieDB.get('/search/tv',{
             params: {api_key:'b8ef17bd40019759c9b93654e682a1a0', language:'en-US', query: term, page:1}
         });
-        this.setState({shows: response.data.results});
+        this.setState({shows: response.data.results, selectedShow: null});
     };
 
     componentDidMount = async () => {
@@ -31,11 +31,14 @@ class App extends React.Component {
         this.setState({shows: this.state.home, selectedShow: null });
     };
 
-    onShowSelect = (show) => {
-        this.setState({selectedShow: show});
+    onShowSelect = async (show) => {
+        const response = await MovieDB.get(`/tv/${show.id}`, {
+            params: {api_key: 'b8ef17bd40019759c9b93654e682a1a0'}
+        });
+        console.log(response.data);
+        this.setState({selectedShow: response.data});
     };
     render() {
-        console.log(this.state.selectedShow);
         return (
             <div>
                 <Home onReturn={this.onHome}/>
