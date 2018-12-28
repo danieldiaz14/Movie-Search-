@@ -20,7 +20,7 @@ const ShowDetail = ({info}) => {
                 <li className="list-group-item"><strong>Released:</strong> {info.first_air_date || backup}</li>
                 <li className="list-group-item"><strong>Rated:</strong> {info.vote_average || backup}</li>
                 <li className="list-group-item"><strong>Director:</strong> {director}</li>
-                <li className="list-group-item"><strong>Seasons:</strong> {info.seasons.length || backup}</li>
+                <li className="list-group-item"><strong>Seasons:</strong> {info.number_of_seasons || backup}</li>
                 <li className="list-group-item"><strong>Last Air Date:</strong> {info.last_air_date || backup}</li>
                 </ul>
             </div>
