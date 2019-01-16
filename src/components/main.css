@@ -10,17 +10,13 @@
 }
 
 .navbar-brand {
-    color: black;
-    transition-duration: 0.5s;
+    cursor: pointer;
+    transition-duration: 0.3s;
 }
-.navbar-brand:hover {
+.navbar-brand:hover{
     transform: scale(1.2);
-    background-color: aliceblue;
-    border: 2px solid black;
-    border-radius: 20%; 
 }
 
-.navbar-brand:active {
-    background-color: lightgreen;
-    border: 2px solid red;
+.list-inline-item > .navbar-brand:active {
+    color: yellow;
 }

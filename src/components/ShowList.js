@@ -3,7 +3,7 @@ import React from 'react';
 import SingleShow from './SingleShow';
 import ShowDetail from './ShowDetail';
 
-const ShowList = ({shows, onShowSelect, selected}) => {
+const ShowList = ({shows, onShowSelect, selected, term}) => {
     const baseImg = 'https://image.tmdb.org/t/p/w500';
     const renderedShow = shows.map((show) => {
         const img = show.poster_path != null ? `${baseImg}${show.poster_path}` : Img;
@@ -12,6 +12,13 @@ const ShowList = ({shows, onShowSelect, selected}) => {
         );
     });
     if (!selected) {
+        if (shows.length < 1) {
+            return (
+                <div className="container">
+                    <h1>No results found</h1>
+                </div>
+            )
+        }
         return (
             <div className="container">
                 <div className="shows row">

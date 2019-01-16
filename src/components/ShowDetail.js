@@ -8,7 +8,7 @@ const ShowDetail = ({info}) => {
     const genre = info.genres.length > 0 ? info.genres[0].name : backup;
     const director = info.created_by.length > 0 ? info.created_by[0].name : backup;
     return (
-        <div>
+        <div className="jumbotron">
             <div className="row">
                 <div className="col-md-4">
                     <img src={img} className="thumbnail"/>
@@ -23,12 +23,8 @@ const ShowDetail = ({info}) => {
                 <li className="list-group-item"><strong>Seasons:</strong> {info.number_of_seasons || backup}</li>
                 <li className="list-group-item"><strong>Last Air Date:</strong> {info.last_air_date || backup}</li>
                 </ul>
-            </div>
-            </div>
-            <div className="row">
-                <div className="well">
-                    <h3>OverView</h3>
-                    {info.overview}
+                <h2>OverView</h2>
+                {info.overview}
                 </div>
             </div>
         </div>
