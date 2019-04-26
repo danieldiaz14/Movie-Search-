@@ -11,7 +11,7 @@ const ShowDetail = ({info}) => {
         <div className="jumbotron">
             <div className="row">
                 <div className="col-md-4">
-                    <img src={img} className="thumbnail"/>
+                    <img src={img} alt={info.name} className="thumbnail"/>
                 </div>
                 <div className="col-md-8">
                 <h2>{info.name}</h2>

@@ -18,36 +18,37 @@ class App extends React.Component {
         const response = await MovieDB.get('/search/tv',{
             params: {api_key:'b8ef17bd40019759c9b93654e682a1a0', language:'en-US', query: term, page:1}
         });
-        this.setState({shows: response.data.results, previousSearch: response.data.results, selectedShow: null});
+        this.setState({previousSearch: this.state.shows, shows: response.data.results, selectedShow: null});
     };
 
     componentDidMount = async () => {
         const response = await MovieDB.get('/discover/tv', {
             params: {api_key:'b8ef17bd40019759c9b93654e682a1a0'}
         });
-        console.log(response);
         this.setState({shows: response.data.results, home:response.data.results, previousSearch: response.data.results});
     };
 
     onHome = () => {
-        this.setState({shows: this.state.home, selectedShow: null, term: 'Popular' });
+        document.querySelector('#root').scrollIntoView({behavior: "smooth"});
+        this.setState({previousSearch: this.state.shows, shows: this.state.home, selectedShow: null, term: 'Popular' });
     };
 
     onShowSelect = async (show) => {
         const response = await MovieDB.get(`/tv/${show.id}`, {
             params: {api_key: 'b8ef17bd40019759c9b93654e682a1a0'}
         });
-        this.setState({selectedShow: response.data});
+        this.setState({previousSearch: this.state.shows, selectedShow: response.data});
+        document.querySelector('div.row').scrollIntoView({behavior: "smooth"});
     };
 
     onPrevious = () => {
-        this.setState({shows: this.state.previousSearch, selectedShow: null,})
+        this.setState({shows: this.state.previousSearch, selectedShow: null});
     };
 
     render() {
         return (
             <div>
-                <nav className="navbar navbar-dark bg-primary">
+                <nav className="navbar sticky-top navbar-dark bg-primary">
                     <div className="container">
                         <ul className="list-inline">
                             <Button onLink={this.onHome} text="Home"/>
