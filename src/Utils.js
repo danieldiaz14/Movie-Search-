@@ -1,0 +1,1 @@
+export const getCurrentCollection = ({ historyQueue }) => historyQueue[historyQueue.length-1]?.shows
